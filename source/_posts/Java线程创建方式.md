@@ -105,3 +105,5 @@ class ImplCallable implements Callable<String> {
 
   通过对比两个接口定义可知`Runnable`和`Callable`有两点不同：（1）通过`call`方法可以获取返回值。前两种方式在任务结束后，无法直接获取执行结果，只能通过共享变量获取，而第三种则可解决这一问题；（2）`call`可以抛出要异常，`Runnable`则需要通过`setDefaultUncaughtExceptionHandler()`方法才能在主线程中获取子线程中的异常。
 
+每创建一个线程，实际上会在虚拟机栈上创建一个新的栈。因为每个虚拟机栈都是线程私有的，因此各线程之间不会相互干扰。
+
